@@ -87,6 +87,8 @@
                         <div class="item-desc">
                             In Preparation.
                             <span class="badge">Pre-print</span>
+                            <a href="https://github.com/MaanasTaneja/cuda-kv-cache-compression" target="_blank"
+                                class="badge-link"><span class="badge">GitHub</span></a>
                         </div>
                     </div>
                 </section>
@@ -150,6 +152,20 @@
 
                 <section id="projects">
                     <h2>Projects</h2>
+
+                    <div class="item">
+                        <div class="item-title">GPU-Accelerated KV Cache Quantization</div>
+                        <div class="item-meta">CUDA, C++, OpenMP</div>
+                        <div class="item-desc">
+                            Implemented INT8 KV-cache quantization for transformer inference, demonstrating ~200× to
+                            ~1700× speedup over CPU baselines. Developed optimized CUDA kernels (Naive, Tiled,
+                            Coarsened,
+                            Vectorized) for memory-bound workloads and benchmarked across realistic LLM dimensions (up
+                            to 131k context) with strict correctness verification ($< 10^{-6}$ error). <a
+                                href="https://github.com/MaanasTaneja/cuda-kv-cache-compression" target="_blank"
+                                class="badge-link"><span class="badge">GitHub</span></a>
+                        </div>
+                    </div>
 
                     <div class="item">
                         <div class="item-title">In-Memory Vector Knowledge Base</div>
