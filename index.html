@@ -16,9 +16,9 @@
 
             <nav class="header-nav">
                 <a href="#vision">Vision</a>
-                <a href="#publications">Publications</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
+                <a href="#publications">Publications</a>
                 <a href="#journalism">Journalism</a>
             </nav>
         </header>
@@ -54,6 +54,180 @@
                     <p>Outside of work, I love to read Indian history and am a passionate writer. I play the guitar and
                         love tennis 🎾.</p>
                     </p>
+                </section>
+
+                <section id="experience">
+                    <h2>Experience</h2>
+
+                    <div class="item">
+                        <div class="item-title">Endor Labs <span class="badge">Member of Technical Staff Intern</span></div>
+                        <div class="item-meta">Jun 2026 – Present | Palo Alto, CA</div>
+                        <div class="item-desc">
+                            Building a Claude skill-based AI SAST agent to detect vulnerabilities in repositories with known security findings. Using algorithms such as GEPA and SkillOpt to iteratively optimize agent skills, with preliminary results showing a 200% increase in F1 score from 0.20 to 0.60.
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Cisco XDR <span class="badge">Software Engineering Intern</span></div>
+                        <div class="item-meta">May 2025 – Aug 2025 | Atlanta, GA</div>
+                        <div class="item-desc">
+                            Designed an autonomous AI agent using LangGraph to process 200+ daily customer support
+                            tickets by executing diagnostic queries across large-scale data lakes. Developed a
+                            Django/PostgreSQL microservices backend with Duo SSO and React dashboard on AWS EKS. Filed a
+                            patent for the system.
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Minnesota NLP Lab <span class="badge">Undergraduate Researcher</span>
+                        </div>
+                        <div class="item-meta">Jan 2025 – Present | Minneapolis, MN</div>
+                        <div class="item-desc">
+                            Co-authored SciTalk, a multi-agent framework for scientific video generation. Designed
+                            iterative feedback loops using LLaVA-NeXT-Video 34B and built a modular pipeline with 6
+                            GPT-4o agents to extract and ground videos in source materials.
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Cisco Webex <span class="badge">Software Engineering Intern</span></div>
+                        <div class="item-meta">May 2024 – Aug 2024 | San Jose, CA</div>
+                        <div class="item-desc">
+                            Designed and deployed an LLM-powered evaluation pipeline for the Cisco Control Hub AI
+                            Assistant, improving evaluation accuracy by 40%. Cut generation costs by 50% by introducing
+                            Redis-based caching infrastructure.
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Mohenjo Daro <span class="badge">Co-Founder</span></div>
+                        <div class="item-meta">Sept 2024 – Present | San Francisco, CA</div>
+                        <div class="item-desc">
+                            Launched a decentralized media startup aggregating underrepresented voices; scaled to 500+
+                            monthly readers. Led end-to-end architecture (Next.js, FastAPI, PostgreSQL) and cloud
+                            infrastructure (AWS, Terraform).
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">CloudQuest Pvt Ltd. <span class="badge">Software Engineering Intern</span></div>
+                        <div class="item-meta">May 2023 – July 2023 | Gurugram, IN</div>
+                        <div class="item-desc">
+                            Engineered cross-platform video player for India's first cloud gaming service using C++,
+                            FFmpeg, OpenGL, and WebRTC. Reduced video latency by 120% and improved quality 4x by
+                            designing custom decoder. Ported client to WebAssembly.
+                        </div>
+                    </div>
+                </section>
+
+                <section id="projects">
+                    <h2>Projects</h2>
+
+                    <div class="item">
+                        <div class="item-title">HawkTrace</div>
+                        <div class="item-meta">React, TypeScript, Tailwind, FastAPI, MongoDB, Playwright, CDP, PyAV, FFmpeg, Gemini</div>
+                        <div class="item-desc">
+                            AI-powered QA test generation from browser recordings. Users record their interactions with any website through a live browser stream, mark specific user flows, and automatically receive executable test code — both human-readable Gherkin BDD scenarios and Playwright TypeScript specs — generated by Google Gemini's vision AI. Built a real-time browser streaming pipeline using Playwright + Chrome DevTools Protocol (CDP) at 20 FPS over WebSocket; engineered frame-precise event synchronization via binary search to map mouse/keyboard events to exact video timestamps; built a H.264 video encoding pipeline (PyAV + FFmpeg) that encodes sessions on-demand in background threads; and applied multimodal prompt engineering to get Gemini to output structured, semantic-selector-first Playwright tests from raw video + event traces.
+                            <a href="https://github.com/MaanasTaneja/hawktrace" target="_blank" class="badge-link"><span class="badge">GitHub</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Replay</div>
+                        <div class="item-meta">Go, Python, pgvector, PostgreSQL, Whisper, FFmpeg, sqlc</div>
+                        <div class="item-desc">
+                            Semantic video search API with timestamp-grounded answers. Upload a video, query it in natural language ("What does Sarah say about leaving?"), and get back the exact timestamp, transcript excerpt, and visual context as evidence. Designed a two-layer indexing architecture — raw parser JSON for fidelity + searchable scene attributes embedded into pgvector for retrieval — and a scene voting algorithm that scores retrieved scenes by max similarity, sum-of-top-3 attribute scores, importance bonuses, and modality match. A query router classifies user intent (audio/visual/story/character/OCR) and maps it to the right attribute modalities. Hybrid Go API + Python Worker architecture: Go handles HTTP routing, pgx, sqlc; Python handles FFmpeg, Whisper transcription, vision models, and embeddings.
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">ClaudeCraft</div>
+                        <div class="item-meta">FastAPI, Celery, Redis, PostgreSQL, React, Nginx, Docker Compose, SQLAlchemy, Alembic</div>
+                        <div class="item-desc">
+                            AI skill optimizer pipeline with async job tracking. Users submit a natural language intention (e.g. "make a Python testing skill") and the system runs it through an async three-stage pipeline — type deduction → data generation → optimization — returning a generated skill definition, synthetic datasets, and optimization graphs. Built an asynchronous job pipeline using Celery + Redis, with PostgreSQL tracking job state across three stages; designed a polling API pattern (POST to submit, GET to poll) with a React frontend that auto-polls every second and renders live markdown output; containerized the full stack in Docker Compose with health checks; and routed traffic through Nginx as a reverse proxy serving both the API and React SPA from the same host.
+                            <a href="https://github.com/MaanasTaneja/Claudecraft" target="_blank" class="badge-link"><span class="badge">GitHub</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Awaken <span style="font-weight:normal;font-style:italic;font-size:0.9em;">— inside Agents You Love</span></div>
+                        <div class="item-meta">Python, PostgreSQL, pgvector, OpenAI, FastAPI, Docker</div>
+                        <div class="item-desc">
+                            Emergent NPC simulation engine with persistent beliefs and LLM dialogue. Game characters live in YAML-authored fantasy worlds, maintain persistent emotional beliefs about the player (affinity, trust, fear, respect), learn about world events through faction channels, and generate contextually grounded dialogue via OpenAI structured outputs. Hybrid memory architecture: objective faction events in PostgreSQL, subjective NPC interpretations in a vector DB with per-NPC sub-tenants and SHA256-based idempotent memory IDs. Structured LLM output pipeline using OpenAI JSON schema mode for belief updates and dialogue, with clamped belief deltas (−20 to +20) to prevent instability. Efficient NPC sync with event cursor tracking (no reprocessing), single JOIN queries for relationship beliefs (no N+1), and async memory ingestion so it doesn't block dialogue response.
+                            <a href="https://github.com/MaanasTaneja/awaken" target="_blank" class="badge-link"><span class="badge">GitHub</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">BrainDead</div>
+                        <div class="item-meta">Swift, SwiftUI, Python, FastAPI, ChromaDB, MCP SDK, OpenAI</div>
+                        <div class="item-desc">
+                            A privacy-first macOS menu bar app that gives AI assistants (Claude, Cursor, ChatGPT) access to your personal context — files, screenshots, clipboard, notes — without ever sending that data to the cloud. Exposes a local MCP server on localhost:3847 with bearer token auth and 10+ tools (search_memory, find_file, get_recent_context, etc.); implements a multi-collection ChromaDB vector store with SQLite fallback organized by source type; captures active window screenshots with OCR, clipboard text, and file system changes; and binds strictly to 127.0.0.1 with macOS Keychain API key storage for full privacy. Manages Python subprocess lifecycle from native Swift, including venv detection and port cleanup.
+                            <a href="https://github.com/MaanasTaneja/bisleri" target="_blank" class="badge-link"><span class="badge">GitHub</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">ShotParser</div>
+                        <div class="item-meta">Python, CLIP, OpenCV, Whisper, Gemini, React</div>
+                        <div class="item-desc">
+                            Automated video analysis pipeline that segments footage into individual shots with full cinematographic metadata. Uses a custom deterministic multi-pass algorithm combining CLIP-based similarity voting, optical flow, and color histograms for scene boundary detection — avoiding neural network black boxes for fully traceable, debuggable splits. Integrates OpenAI Whisper for per-shot dialogue transcription and Gemini 2.5 Pro for visual descriptions. Outputs structured JSON with camera angle, lens type, motion, and an entity registry for consistent character/location tracking across shots.
+                            <a href="https://github.com/MaanasTaneja/ShotParser" target="_blank" class="badge-link"><span class="badge">GitHub</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">GPU-Accelerated KV Cache Quantization</div>
+                        <div class="item-meta">CUDA, C++, OpenMP</div>
+                        <div class="item-desc">
+                            Implemented INT8 KV-cache quantization for transformer inference, demonstrating ~200× to
+                            ~1700× speedup over CPU baselines. Developed optimized CUDA kernels (Naive, Tiled,
+                            Coarsened, Vectorized) for memory-bound workloads and benchmarked across realistic LLM dimensions (up
+                            to 131k context) with strict correctness verification ($< 10^{-6}$ error).
+                            <a href="https://github.com/MaanasTaneja/cuda-kv-cache-compression" target="_blank"
+                                class="badge-link"><span class="badge">GitHub</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">In-Memory Vector Knowledge Base</div>
+                        <div class="item-meta">SQLite, FAISS, LangChain</div>
+                        <div class="item-desc">
+                            A lightweight vector database built with SQLite and FAISS for agent memory and rapid
+                            prototyping. Created at Cisco to bypass infrastructure constraints, it provides a
+                            zero-dependency knowledge store supporting semantic chunking, category-based retrieval, and
+                            LLM-powered relevance filtering. Plug-and-play with LangChain, handling both in-memory and
+                            persistent storage for small to medium-scale knowledge bases.
+                            <a href="https://github.com/MaanasTaneja/inmemorykb" target="_blank"
+                                class="badge-link"><span class="badge">GitHub</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Media Library</div>
+                        <div class="item-meta">C++, FFMPEG LibAV</div>
+                        <div class="item-desc">
+                            A work-in-progress media manipulation API written in C flavoured C++ using FFMPEG LibAV,
+                            currently capable of encoding, decoding, remuxing and transcoding files with a simple
+                            interface. The Library can also be used to capture, process RTP stream packets for use in
+                            video streaming applications. The goal is to make a library that can be used to edit videos
+                            programmatically, sorta like Premiere Pro but without the UI.
+                            <a href="https://github.com/MaanasTaneja/MediaLibrary" target="_blank"
+                                class="badge-link"><span class="badge">GitHub</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Ray Tracer</div>
+                        <div class="item-meta">C++, CUDA</div>
+                        <div class="item-desc">
+                            A work-in-progress Path Tracer based on Peter Shirley's book, currently using a naive brute
+                            force ray tracing algorithm to simulate Lambert, Metallic, and Transparent objects.
+                            Currently porting to CUDA for massive performance gains via parallelism.
+                            <a href="https://github.com/MaanasTaneja/ray-tracer" target="_blank"
+                                class="badge-link"><span class="badge">GitHub</span></a>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="publications">
@@ -102,132 +276,6 @@
                                 class="badge-link"><span class="badge">GitHub</span></a>
                         </div>
                     </div>
-                </section>
-
-                <section id="experience">
-                    <h2>Experience</h2>
-
-                    <div class="item">
-                        <div class="item-title">Cisco XDR <span class="badge">Software Engineering Intern</span></div>
-                        <div class="item-meta">May 2025 – Aug 2025 | Atlanta, GA</div>
-                        <div class="item-desc">
-                            Designed an autonomous AI agent using LangGraph to process 200+ daily customer support
-                            tickets by executing diagnostic queries across large-scale data lakes. Developed a
-                            Django/PostgreSQL microservices backend with Duo SSO and React dashboard on AWS EKS. Filed a
-                            patent for the system.
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-title">Minnesota NLP Lab <span class="badge">Undergraduate Researcher</span>
-                        </div>
-                        <div class="item-meta">Jan 2025 – Present | Minneapolis, MN</div>
-                        <div class="item-desc">
-                            Co-authored SciTalk, a multi-agent framework for scientific video generation. Designed
-                            iterative feedback loops using LLaVA-NeXT-Video 34B and built a modular pipeline with 6
-                            GPT-4o agents to extract and ground videos in source materials.
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-title">Cisco Webex <span class="badge">Software Engineering Intern</span></div>
-                        <div class="item-meta">May 2024 – Aug 2024 | San Jose, CA</div>
-                        <div class="item-desc">
-                            Designed and deployed an LLM-powered evaluation pipeline for the Cisco Control Hub AI
-                            Assistant, improving evaluation accuracy by 40%. Cut generation costs by 50% by introducing
-                            Redis-based caching infrastructure.
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-title">Mohenjo Daro <span class="badge">Co-Founder</span></div>
-                        <div class="item-meta">Sept 2024 – Present | San Francisco, CA</div>
-                        <div class="item-desc">
-                            Launched a decentralized media startup aggregating underrepresented voices; scaled to 500+
-                            monthly readers. Led end-to-end architecture (Next.js, FastAPI, PostgreSQL) and cloud
-                            infrastructure (AWS, Terraform).
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-title">CloudQuest Pvt Ltd. <span class="badge">Software Engineering
-                                Intern</span></div>
-                        <div class="item-meta">May 2023 – July 2023 | Gurugram, IN</div>
-                        <div class="item-desc">
-                            Engineered cross-platform video player for India's first cloud gaming service using C++,
-                            FFmpeg, OpenGL, and WebRTC. Reduced video latency by 120% and improved quality 4x by
-                            designing custom decoder. Ported client to WebAssembly.
-                        </div>
-                    </div>
-                </section>
-
-                <section id="projects">
-                    <h2>Projects</h2>
-
-                    <div class="item">
-                        <div class="item-title">ShotParser</div>
-                        <div class="item-meta">Python, CLIP, OpenCV, Whisper, Gemini, React</div>
-                        <div class="item-desc">
-                            Automated video analysis pipeline that segments footage into individual shots with full cinematographic metadata. Uses a custom deterministic multi-pass algorithm combining CLIP-based similarity voting, optical flow, and color histograms for scene boundary detection — avoiding neural network black boxes for fully traceable, debuggable splits. Integrates OpenAI Whisper for per-shot dialogue transcription and Gemini 2.5 Pro for visual descriptions. Outputs structured JSON with camera angle, lens type, motion, and an entity registry for consistent character/location tracking across shots.
-                            <a href="https://github.com/MaanasTaneja/ShotParser" target="_blank" class="badge-link"><span class="badge">GitHub</span></a>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-title">GPU-Accelerated KV Cache Quantization</div>
-                        <div class="item-meta">CUDA, C++, OpenMP</div>
-                        <div class="item-desc">
-                            Implemented INT8 KV-cache quantization for transformer inference, demonstrating ~200× to
-                            ~1700× speedup over CPU baselines. Developed optimized CUDA kernels (Naive, Tiled,
-                            Coarsened,
-                            Vectorized) for memory-bound workloads and benchmarked across realistic LLM dimensions (up
-                            to 131k context) with strict correctness verification ($< 10^{-6}$ error). <a
-                                href="https://github.com/MaanasTaneja/cuda-kv-cache-compression" target="_blank"
-                                class="badge-link"><span class="badge">GitHub</span></a>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-title">In-Memory Vector Knowledge Base</div>
-                        <div class="item-meta">SQLite, FAISS, LangChain</div>
-                        <div class="item-desc">
-                            A lightweight vector database built with SQLite and FAISS for agent memory and rapid
-                            prototyping. Created at Cisco to bypass infrastructure constraints, it provides a
-                            zero-dependency knowledge store supporting semantic chunking, category-based retrieval, and
-                            LLM-powered relevance filtering. Plug-and-play with LangChain, handling both in-memory and
-                            persistent storage for small to medium-scale knowledge bases.
-                            <a href="https://github.com/MaanasTaneja/inmemorykb" target="_blank"
-                                class="badge-link"><span class="badge">GitHub</span></a>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-title">Media Library</div>
-                        <div class="item-meta">C++, FFMPEG LibAV</div>
-                        <div class="item-desc">
-                            A work-in-progress media manipulation API written in C flavoured C++ using FFMPEG LibAV,
-                            currently capable of encoding, decoding, remuxing and transcoding files with a simple
-                            interface. The Library can also be used to capture, process RTP stream packets for use in
-                            video streaming applications. The goal is to make a library that can be used to edit videos
-                            programmatically, sorta like Premiere Pro but without the UI.
-                            <a href="https://github.com/MaanasTaneja/MediaLibrary" target="_blank"
-                                class="badge-link"><span class="badge">GitHub</span></a>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-title">Ray Tracer</div>
-                        <div class="item-meta">C++, CUDA</div>
-                        <div class="item-desc">
-                            A work-in-progress Path Tracer based on Peter Shirley's book, currently using a naive brute
-                            force ray tracing algorithm to simulate Lambert, Metallic, and Transparent objects.
-                            Currently porting to CUDA for massive performance gains via parallelism.
-                            <a href="https://github.com/MaanasTaneja/ray-tracer" target="_blank"
-                                class="badge-link"><span class="badge">GitHub</span></a>
-                        </div>
-                    </div>
-
-
                 </section>
             </div>
 
